@@ -9,4 +9,18 @@ public class Car{
         Make = make;
         Model = model;
     }
+    
+    public override bool Equals(object? obj)
+    {
+        if (obj is Car otherCar)
+        {
+            return Make == otherCar.Make && Model == otherCar.Model;
+        }
+        return false;
+    }
+    
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(Make, Model);
+    }
 }
